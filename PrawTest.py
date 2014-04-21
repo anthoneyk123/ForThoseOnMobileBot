@@ -34,7 +34,8 @@ while True:
     files.close()
     for comment in all_comments:
         try:
-            if (comment.id not in already_done) and (comment.author not in blacklist) and ('|' in comment.body) and (':' in comment.body) and ('-' in comment.body):
+            regex = re.compile('\|:-')
+            if (comment.id not in already_done) and (comment.author not in blacklist) and (regex.search(comment.body)):
                 
                 a = datetime.datetime.now()
                 htime = a.hour
