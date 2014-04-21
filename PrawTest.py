@@ -8,7 +8,7 @@ import pyimgur
 from selenium import webdriver
 import os
 
-CLIENT_ID = "1ad4d9b82c4b632"
+CLIENT_ID = "ImgurClientIdHere"
 im = pyimgur.Imgur(CLIENT_ID)
 
 user_agent ='For Those On Mobile Bot by /u/anthoneyk123'
@@ -19,13 +19,12 @@ files = shelve.open("PrawTest4.dat", writeback=True)
 print "Opened!"
 #already_done = {} 
 #files["already_done"] = ["a","b"]
-pgimg = 'http://api.page2images.com/restfullink?p2i_url=TARGET_URL&p2i_key=a09676f983568ec9&p2i_screen=1024x768&p2i_device=6&p2i_size=512x384'
 #x = files["x"]
 #files["x"] = x
 files.close()
 done = set()
 print "Running"
-
+blacklist = ['demobilizer','AutoModerator','NightMirrorMoon','ApiContraption','LocationBot']
 while True:
     #subreddit = r.get_subreddit('mobilebot')
     #all_comments = subreddit.get_comments()
@@ -35,7 +34,7 @@ while True:
     files.close()
     for comment in all_comments:
         try:
-            if (comment.id not in already_done) and ('|' in comment.body) and (':' in comment.body) and ('-' in comment.body):
+            if (comment.id not in already_done) and (comment.author not in blacklist) and ('|' in comment.body) and (':' in comment.body) and ('-' in comment.body):
                 
                 a = datetime.datetime.now()
                 htime = a.hour
