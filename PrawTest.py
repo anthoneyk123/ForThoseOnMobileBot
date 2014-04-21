@@ -3,9 +3,6 @@ import datetime
 import shelve
 import re
 import traceback
-import json
-import urllib
-import urllib2
 import time
 import pyimgur
 from selenium import webdriver
@@ -17,7 +14,7 @@ im = pyimgur.Imgur(CLIENT_ID)
 user_agent ='For Those On Mobile Bot by /u/anthoneyk123'
 r = praw.Reddit(user_agent=user_agent)
 submission = r.get_submission(submission_id='11v36o')
-r.login('ForThoseOnMobileBot','kalasho123')
+r.login('ForThoseOnMobileBot','PasswordRemoved')
 files = shelve.open("PrawTest4.dat", writeback=True)
 print "Opened!"
 #already_done = {} 
